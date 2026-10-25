@@ -3,6 +3,7 @@ import { useState, lazy, Suspense  } from 'react'
 import { Canvas } from '@react-three/fiber'
 import blinkButton from './assets/slash1.svg'
 import soundButton from './assets/grey.svg'
+import logo from './assets/logo-full-svg.svg'
 
 const Experience = lazy(()=> import('./Experience copy.jsx'))
 
@@ -30,6 +31,7 @@ export default function App ()
         </Suspense>
     </Canvas>
 
+      <img src={logo} alt="logo" className='logo-div'/>
         <button className= "blink-btn" onClick={handleBlink}>
             <img src={blinkButton} alt="Blink" className='blink-svg'/>
              <span className="blink-text">blink</span>

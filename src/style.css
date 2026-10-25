@@ -151,6 +151,22 @@ body,
     transition: transform 0.1s ease 0s;  
 }
 
+.logo-div {
+    position: absolute;
+    top: 2rem;
+    z-index: 888;
+    width: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 900px){
+.logo-div{
+    width: 60%;
+}
+}
+
+
 
 .text-div {
     position: relative;
@@ -166,22 +182,11 @@ body,
 
 @media screen and (max-width: 900px){
 .text-div {
-    font-size: 2rem;
+    font-size: 1rem;
     bottom: 8rem;
 }
 }
 
-.text-ad{
-    position: relative;
-    bottom: 26rem;
-    text-align: center;
-    text-decoration: none;
-    font-family: 'yoxallitalic';
-    font-size: 11.1rem;
-    font-display: fallback;
-    z-index: 888;
-    color: #ff9ce7;
-}
 
 .font-link {
     position: absolute;
@@ -201,7 +206,7 @@ body,
 
 @media screen and (max-width: 900px){
 .font-link {
-    font-size: 0.4rem;
+    font-size: 0.2rem;
     /* bottom: 4rem; */
 }
 }
