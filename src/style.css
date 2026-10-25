@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'yoxall';
+  src: url('./assets/fonts/Yoxall.woff2') format('woff2');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'yoxallitalic';
+  src: url('./assets/fonts/YoxallItalic.woff2') format('woff2');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body,
+#root
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    background-image: url("/walkframe.jpg");
+    background-size: 100% 100%;
+    font-family: 'yoxall', Arial, sans-serif;
+}
+
+.blink-btn {
+    opacity: 2;
+    background: transparent;
+    border: none;
+    color: #aa0004; 
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'yoxall';
+    font-size: 16px;
+    cursor: pointer;
+    width: 20%;
+    z-index: 100;
+    position: absolute;
+    top: 50%;                       
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px){
+.blink-btn {
+    width: 50%;
+    bottom: -1rem;
+}
+}
+
+.blink-svg{
+    cursor: pointer;
+    z-index: 88;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.4s ease 0.8s;
+}
+
+.blink-svg:hover {
+   transform: scale(1.0, 0.94);
+   transition: transform 0.2s ease 0s; 
+}
+
+.blink-svg:active {
+   transform: scale(1.0, 0.4);
+   transition: transform 0.2s ease 0s; 
+}
+
+.blink-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #aa0004;
+    font-size: 2.2rem;
+    letter-spacing: 0.2rem;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 900px){
+.blink-text {
+    font-size: 1.3rem;
+}
+}
+
+
+
+.sound-btn {
+    background-color: transparent;
+    border: none;
+    color: #aa0004;
+    padding: 1rem 1rem;
+    margin-left: 1rem;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'yoxall';
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    z-index: 200;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;     
+    height: 3rem;
+}
+
+@media screen and (max-width: 900px){
+.sound-btn {
+    width: 3.5rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+}
+
+
+.sound-svg {
+    cursor: pointer;
+    width: 100%;
+    z-index: 88;
+    position: absolute;
+    bottom: 0;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease 0s;
+   
+}
+
+.sound-svg.unmuted {
+    transform: translate(-50%, -50%) skew(30deg, 20deg);
+    transition: transform 0.1s ease 0s;  
+}
+
+
+.text-div {
+    position: relative;
+    bottom: 8rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'yoxallitalic';
+    font-size: 2rem;
+    font-display: fallback;
+    z-index: 888;
+    color: #ff9ce7;
+}
+
+@media screen and (max-width: 900px){
+.text-div {
+    font-size: 2rem;
+    bottom: 8rem;
+}
+}
+
+.text-ad{
+    position: relative;
+    bottom: 26rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'yoxallitalic';
+    font-size: 11.1rem;
+    font-display: fallback;
+    z-index: 888;
+    color: #ff9ce7;
+}
+
+.font-link {
+    position: absolute;
+    bottom: 2rem;
+    right: 0;
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'yoxall';
+    font-size: 0.8rem;
+    font-display: fallback;
+    z-index: 888;
+    color: #ff9ce7;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 900px){
+.font-link {
+    font-size: 0.4rem;
+    /* bottom: 4rem; */
+}
+}
