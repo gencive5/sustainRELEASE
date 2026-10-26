@@ -6,104 +6,61 @@ import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js'
 import wobbleVertexShader from './shaders/blur/vertex.glsl'
 import wobbleFragmentShader from './shaders/blur/fragment.glsl'
 import { useSpring } from '@react-spring/three'
-import { useVideoTexture, Environment } from '@react-three/drei'
+import { useTexture, Environment } from '@react-three/drei'
 import { useIsMobile } from './IsMobile.jsx'
 
-export default function Experience({ blinkTrigger, muted }) {
+export default function Experience({ blinkTrigger }) {
   const { scene } = useThree()
 
   // mobile detection
   const isMobile = useIsMobile()
 
   // video
-  const videoTexture = useVideoTexture('rosefinale.mp4', {
-    muted: muted,
-    loop: true,
-    playsInline: true,
-    crossOrigin: 'anonymous',
-    start: false,
-  })
-
-  // preload video
-  useEffect(() => {
-    if (videoTexture) {
-      const video = videoTexture.image
-      if (video) {
-        video.load()
-        video.addEventListener('loadeddata', () => {
-          video.play()
-        })
-      }
-    }
-  }, [videoTexture])
+  const imageTexture = useTexture('Faim23.jpg')
 
   // set as scene background
   useEffect(() => {
-    if (videoTexture) {
-      scene.background = videoTexture
+    if (imageTexture) {
+      scene.background = imageTexture
     }
     return () => {
-      if (scene.background === videoTexture) {
+      if (scene.background === imageTexture) {
         scene.background = null
       }
     }
-  }, [videoTexture, scene])
+  }, [imageTexture, scene])
 
   // keep video aspect ratio (background-size: cover)
-  useEffect(() => {
-    if (!videoTexture) return
+  // useEffect(() => {
+  //   if (!videoTexture) return
 
-    const video = videoTexture.image
-    if (!video) return
+  //   const video = videoTexture.image
+  //   if (!video) return
 
-    videoTexture.colorSpace = THREE.SRGBColorSpace
-    videoTexture.matrixAutoUpdate = false
+  //   videoTexture.colorSpace = THREE.SRGBColorSpace
+  //   videoTexture.matrixAutoUpdate = false
 
-    const updateAspect = () => {
-      if (!video.videoWidth || !video.videoHeight) return
+  //   const updateAspect = () => {
+  //     if (!video.videoWidth || !video.videoHeight) return
 
-      const videoAspect = video.videoWidth / video.videoHeight
-      const screenAspect = window.innerWidth / window.innerHeight
+  //     const videoAspect = video.videoWidth / video.videoHeight
+  //     const screenAspect = window.innerWidth / window.innerHeight
 
-      if (screenAspect > videoAspect) {
-        // Screen is wider than video → fit width, crop top/bottom
-        const s = videoAspect / screenAspect
-        videoTexture.repeat.set(1, s)
-        videoTexture.offset.set(0, (1 - s) / 2)
-      } else {
+  //     if (screenAspect > videoAspect) {
+  //       // Screen is wider than video → fit width, crop top/bottom
+  //       const s = videoAspect / screenAspect
+  //       videoTexture.repeat.set(1, s)
+  //       videoTexture.offset.set(0, (1 - s) / 2)
+  //     } else {
         // Screen is taller than video → fit height, crop left/right
-        const s = screenAspect / videoAspect
-        videoTexture.repeat.set(s, 1)
-        videoTexture.offset.set((1 - s) / 2, 0)
-      }
+    //     const s = screenAspect / videoAspect
+    //     videoTexture.repeat.set(s, 1)
+    //     videoTexture.offset.set((1 - s) / 2, 0)
+    //   }
 
-      videoTexture.updateMatrix()
-    }
+    //   videoTexture.updateMatrix()
+    // }
 
-    // video metadata may not be loaded yet
-    if (video.readyState >= 1) {
-      updateAspect()
-    } else {
-      video.addEventListener('loadedmetadata', updateAspect)
-    }
-
-    window.addEventListener('resize', updateAspect)
-
-    return () => {
-      video.removeEventListener('loadedmetadata', updateAspect)
-      window.removeEventListener('resize', updateAspect)
-    }
-  }, [videoTexture])
-
-  // mute toggle
-  useEffect(() => {
-    if (videoTexture) {
-      const video = videoTexture.image
-      if (video) {
-        video.muted = muted
-      }
-    }
-  }, [muted])
 
   // Material parameters
   const DEFAULT_TRANSMISSION = 1.0
@@ -202,9 +159,9 @@ export default function Experience({ blinkTrigger, muted }) {
         position={position}
         scale={scale}
       />
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <Environment files="./lilienstein_1k.hdr" background={false} />
-      </Suspense>
+      </Suspense> */}
     </>
   )
 }
