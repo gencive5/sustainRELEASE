@@ -118,6 +118,18 @@ body,
 }
 }
 
+.text-about {
+    position: absolute;
+    top: 5rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'yoxallitalic';
+    font-size: 2rem;
+    font-display: fallback;
+    z-index: 888;
+    color: #ff9ce7;
+}
+
 
 .button-about {
   background-color: red;
