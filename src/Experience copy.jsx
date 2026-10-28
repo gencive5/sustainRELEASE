@@ -5,11 +5,10 @@ import CustomShaderMaterial from 'three-custom-shader-material/vanilla'
 import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js'
 import wobbleVertexShader from './shaders/blur/vertex.glsl'
 import wobbleFragmentShader from './shaders/blur/fragment.glsl'
-import { useSpring } from '@react-spring/three'
 import { useTexture, Environment } from '@react-three/drei'
 import { useIsMobile } from './IsMobile.jsx'
 
-export default function Experience({ blinkTrigger }) {
+export default function Experience() {
   const { scene } = useThree()
 
   // mobile detection
@@ -131,24 +130,7 @@ export default function Experience({ blinkTrigger }) {
   const position = isMobile ? [0, 0, 0] : [0, 2, 0]
   const scale = isMobile ? [1.2, 2, 1] : [2.2, 1, 1.7]
 
-  // Blink
-  useSpring({
-    ior: blinkTrigger ? 0 : DEFAULT_IOR,
-    config: {
-      duration: blinkTrigger ? 1000 : 7000,
-      easing: (t) => {
-        if (blinkTrigger) {
-          return t * t * (3 - 2 * t)
-        } else {
-          return t
-        }
-      },
-    },
-    onChange: ({ value }) => {
-      if (material) material.ior = value.ior
-    },
-    delay: blinkTrigger ? 0 : 5000,
-  })
+
 
   return (
     <>
