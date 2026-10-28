@@ -15,7 +15,7 @@ export default function Experience() {
   const isMobile = useIsMobile()
 
   // video
-  const imageTexture = useTexture('Faim23.jpg')
+  const imageTexture = useTexture('blue.jpg')
 
   // set as scene background
   useEffect(() => {
