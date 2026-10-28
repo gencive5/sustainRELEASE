@@ -30,73 +30,6 @@ body,
     font-family: 'yoxall', Arial, sans-serif;
 }
 
-.blink-btn {
-    opacity: 2;
-    background: transparent;
-    border: none;
-    color: #aa0004; 
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    font-family: 'yoxall';
-    font-size: 16px;
-    cursor: pointer;
-    width: 20%;
-    z-index: 100;
-    position: absolute;
-    top: 50%;                       
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (max-width: 900px){
-.blink-btn {
-    width: 50%;
-    bottom: -1rem;
-}
-}
-
-.blink-svg{
-    cursor: pointer;
-    z-index: 88;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    transition: transform 0.4s ease 0.8s;
-}
-
-.blink-svg:hover {
-   transform: scale(1.0, 0.94);
-   transition: transform 0.2s ease 0s; 
-}
-
-.blink-svg:active {
-   transform: scale(1.0, 0.4);
-   transition: transform 0.2s ease 0s; 
-}
-
-.blink-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #aa0004;
-    font-size: 2.2rem;
-    letter-spacing: 0.2rem;
-    pointer-events: none;
-}
-
-@media screen and (max-width: 900px){
-.blink-text {
-    font-size: 1.3rem;
-}
-}
-
-
 
 .sound-btn {
     background-color: transparent;
@@ -143,7 +76,6 @@ body,
     width: 100%;
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease 0s;
-   
 }
 
 .sound-svg.unmuted {
@@ -167,7 +99,6 @@ body,
 }
 
 
-
 .text-div {
     position: relative;
     bottom: 8rem;
@@ -188,25 +119,46 @@ body,
 }
 
 
-.font-link {
-    position: absolute;
-    bottom: 2rem;
-    right: 0;
-    text-align: center;
-    text-decoration: underline;
-    font-family: 'yoxall';
-    font-size: 0.8rem;
-    font-display: fallback;
-    z-index: 888;
-    color: #ff9ce7;
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
-    transform: rotate(180deg);
+.button-about {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'yoxall';
+  font-size: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  z-index: 200;
+  cursor: pointer;
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;     
+  height: 3rem;
 }
 
-@media screen and (max-width: 900px){
-.font-link {
-    font-size: 0.2rem;
-    /* bottom: 4rem; */
-}
+.button-contributors {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'yoxall';
+  font-size: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  z-index: 200;
+  cursor: pointer;
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;     
+  height: 3rem;
 }
