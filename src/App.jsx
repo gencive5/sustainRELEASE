@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import soundButton from './assets/grey.svg'
 import logo from './assets/logo.png'
 
-const Experience = lazy(()=> import('./Visualiser.jsx'))
+const Experience = lazy(()=> import('./Visualizer.jsx'))
 
 export default function App ()
 {
@@ -13,8 +13,6 @@ export default function App ()
     const handleToggleMute = () => setMuted(current => !current);
 
     // modals
-    const [showAbout, setShowAbout] = useState(false);
-    const [showContributors, setShowContributors] = useState(false);
     const [panel, setPanel] = useState(null);
 
     return <>
@@ -42,10 +40,14 @@ export default function App ()
     <button className="button-about" onClick={() => setPanel('about')}>About</button>
     <button className="button-contributors" onClick={() => setPanel('contributors')}>Contributors</button>
 
+{panel &&(
+    <button className="button-close" onClick={() => setPanel(null)}>close</button>
+    )}
+
 {panel === 'about' && (
-    <div className="modal-overlay" onClick={() => setShowAbout(false)}>
-    <div className="modal-content" onClick={e => e.stopPropagation()}>
-    <p className= "text-about">sustain RELEASE!
+    <div className="modal-overlay" onClick={() => setPanel(null)}>
+    <div className="modal-content" onClick={() => setPanel(null)}>
+    <p className= "text-about">sustainRELEASE!
     Ce site né d'une volonté de ne pas laisser les cultures populaires et underground aux masses bourgeoise et ou commerciale, en créant un espace d'échange permettant de continuer de développer nos réseaux autodidactes , offrant l'opportunité de partager son travail quel qu'il soit a condition de ne promouvoir aucune forme de domination (sexiste,raciste,transphobe,homophobe,sociale)
 
     CONCRETEMENT
