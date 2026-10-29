@@ -85,16 +85,16 @@ body,
 
 .logo-div {
     position: absolute;
-    top: 2rem;
+    top: 1rem;
     z-index: 888;
-    width: 20%;
+    width: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 @media screen and (max-width: 900px){
 .logo-div{
-    width: 60%;
+    width: 40%;
 }
 }
 
@@ -132,7 +132,7 @@ body,
 
 
 .button-about {
-  background-color: red;
+  background-color: #aa0004;
   border: none;
   color: white;
   padding: 1rem 1rem;
@@ -154,7 +154,7 @@ body,
 }
 
 .button-contributors {
-  background-color: red;
+  background-color: #aa0004;
   border: none;
   color: white;
   padding: 1rem 1rem;
@@ -176,7 +176,7 @@ body,
 }
 
 .button-close {
-  background-color: red;
+  background-color: #aa0004;
   border: none;
   color: white;
   padding: 1rem 1rem;
