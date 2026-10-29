@@ -29,37 +29,6 @@ export default function Experience() {
     }
   }, [imageTexture, scene])
 
-  // keep video aspect ratio (background-size: cover)
-  // useEffect(() => {
-  //   if (!videoTexture) return
-
-  //   const video = videoTexture.image
-  //   if (!video) return
-
-  //   videoTexture.colorSpace = THREE.SRGBColorSpace
-  //   videoTexture.matrixAutoUpdate = false
-
-  //   const updateAspect = () => {
-  //     if (!video.videoWidth || !video.videoHeight) return
-
-  //     const videoAspect = video.videoWidth / video.videoHeight
-  //     const screenAspect = window.innerWidth / window.innerHeight
-
-  //     if (screenAspect > videoAspect) {
-  //       // Screen is wider than video → fit width, crop top/bottom
-  //       const s = videoAspect / screenAspect
-  //       videoTexture.repeat.set(1, s)
-  //       videoTexture.offset.set(0, (1 - s) / 2)
-  //     } else {
-        // Screen is taller than video → fit height, crop left/right
-    //     const s = screenAspect / videoAspect
-    //     videoTexture.repeat.set(s, 1)
-    //     videoTexture.offset.set((1 - s) / 2, 0)
-    //   }
-
-    //   videoTexture.updateMatrix()
-    // }
-
 
   // Material parameters
   const DEFAULT_TRANSMISSION = 1.0
@@ -103,14 +72,14 @@ export default function Experience() {
     })
   }, [uniforms])
 
-  const depthMaterial = useMemo(() => {
-    return new CustomShaderMaterial({
-      baseMaterial: THREE.MeshDepthMaterial,
-      vertexShader: wobbleVertexShader,
-      uniforms: uniforms,
-      depthPacking: THREE.RGBADepthPacking,
-    })
-  }, [uniforms])
+  // const depthMaterial = useMemo(() => {
+  //   return new CustomShaderMaterial({
+  //     baseMaterial: THREE.MeshDepthMaterial,
+  //     vertexShader: wobbleVertexShader,
+  //     uniforms: uniforms,
+  //     depthPacking: THREE.RGBADepthPacking,
+  //   })
+  // }, [uniforms])
 
   // BLOB
   const geometry = useMemo(() => {
@@ -137,7 +106,7 @@ export default function Experience() {
       <mesh
         geometry={geometry}
         material={material}
-        customDepthMaterial={depthMaterial}
+        // customDepthMaterial={depthMaterial}
         position={position}
         scale={scale}
       />
