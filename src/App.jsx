@@ -47,7 +47,7 @@ export default function App ()
 
 
 {panel === 'contributors' && (
-    <div className="modal-overlay" onClick={() => setShowContributors(false)}>
+    <div className="modal-overlay" onClick={() => setPanel(null)}>
     <div className="modal-content" onClick={e => e.stopPropagation()}>
         <Contributors/>
 
