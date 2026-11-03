@@ -24,6 +24,8 @@ export default function App ()
 
     <img src={logo} alt="logo" className='logo-div'/>
 
+    <button className="button-send">Envoyer media</button>
+
     <p className="text-div">Vous pouvez envoyer une image qui sera intégrée au visualiseur</p>
 
 

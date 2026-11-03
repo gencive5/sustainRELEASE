@@ -196,3 +196,33 @@ body,
   width: 6rem;     
   height: 3rem;
 }
+
+.button-send {
+  background-color: #ff9ce7;
+  border: none;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'yoxall';
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 8rem;
+  z-index: 888;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+  cursor: pointer;
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;     
+  height: 3rem;
+}
+
+@media screen and (max-width: 900px){
+.button-send{
+    width: 15rem;
+}
+}
