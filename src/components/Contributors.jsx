@@ -12,21 +12,24 @@ const items = [
   {id: 3, label: "roger white", img: rwImg}, 
 ]
 
-const [hoveredId, setHoveredId] = useState(null);
+const [activeId, setActiveId] = useState(null)
 
-const hoveredItem = items.find (i => i.id === hoveredId)
+const activeItem = items.find (i => i.id === activeId)
+
+const handleTap = (id) => setActiveId(prev => (prev === id ? null : id))
 
 return <>
 <div className="hover-img">
-   {hoveredItem && <img src={hoveredItem.img} alt={hoveredItem.label}/>}
+   {activeItem && <img src={activeItem.img} alt={activeItem.label}/>}
 </div>
 
 <ul className="text-about">
   {items.map(item =>(
     <li
       key={item.id}
-      onMouseEnter={() => setHoveredId(item.id)}
-      onMouseLeave={() => setHoveredId(null)}
+      onMouseEnter={() => setActiveId(item.id)}
+      onMouseLeave={() => setActiveId(null)}
+      onClick={() => handleTap(item.id)}
     >{item.label}</li>
   )
   )}
