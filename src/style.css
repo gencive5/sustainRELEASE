@@ -25,7 +25,6 @@ body,
     height: 100%;
     overflow: hidden;
     background-color: transparent;
-    background-image: url("/walkframe.jpg");
     background-size: 100% 100%;
     font-family: 'yoxall', Arial, sans-serif;
 }
@@ -128,6 +127,7 @@ body,
     font-display: fallback;
     z-index: 889;
     color: #ff9ce7;
+    line-height: 2rem;
 }
 
 
@@ -257,6 +257,7 @@ body,
     z-index: 889;
     color: #ff9ce7;
     padding: 1rem;
+    line-height: 2rem;
 }
 
 .list-contributors {
