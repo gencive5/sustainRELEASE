@@ -7,9 +7,9 @@ import {useState} from 'react'
 export default function Contributors() {
 
 const items = [ 
-  {id: 1, label: "sanity (@sanity_musik)", img: sanityImg},
-  {id: 2, label: "gencives (@gencive5)", img: gencive5Img},
-  {id: 3, label: "roger white", img: rwImg}, 
+  {id: 1, label: "sanity (@sanity_musik), ", img: sanityImg},
+  {id: 2, label: "gencives (@gencive5), ", img: gencive5Img},
+  {id: 3, label: "roger white, ", img: rwImg}, 
 ]
 
 const [activeId, setActiveId] = useState(null)
@@ -23,9 +23,10 @@ return <>
    {activeItem && <img src={activeItem.img} alt={activeItem.label}/>}
 </div>
 
-<ul className="text-about">
+<ul className="text-contributors">
   {items.map(item =>(
     <li
+      className="list-contributors"
       key={item.id}
       onMouseEnter={() => setActiveId(item.id)}
       onMouseLeave={() => setActiveId(null)}

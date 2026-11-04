@@ -245,3 +245,20 @@ body,
   object-fit: cover;
   display: block;
 }
+
+.text-contributors {
+    position: absolute;
+    top: 5rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'yoxall';
+    font-size: 1rem;
+    font-display: fallback;
+    z-index: 889;
+    color: #ff9ce7;
+    padding: 1rem;
+}
+
+.list-contributors {
+  display: inline;
+}
