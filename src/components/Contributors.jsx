@@ -16,6 +16,8 @@ const [activeId, setActiveId] = useState(null)
 
 const activeItem = items.find (i => i.id === activeId)
 
+const isMouse = (event) => event.pointerType === 'mouse'
+
 const handleTap = (id) => setActiveId(prev => (prev === id ? null : id))
 
 return <>
@@ -28,8 +30,8 @@ return <>
     <li
       className="list-contributors"
       key={item.id}
-      onMouseEnter={() => setActiveId(item.id)}
-      onMouseLeave={() => setActiveId(null)}
+      onPointerEnter={(event) => isMouse (event) && setActiveId(item.id)}
+      onPointerLeave={(event) => isMouse (event) && setActiveId(null)}
       onClick={() => handleTap(item.id)}
     >{item.label}</li>
   )
