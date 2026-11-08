@@ -3,6 +3,7 @@ import '../style.css'
 export default function About() {
 
 return <>
+<div className='about'>
  <p className= "text-about">sustainRELEASE!
     Ce site né d'une volonté de ne pas laisser les cultures populaires et underground aux masses bourgeoise et ou commerciale, en créant un espace d'échange permettant de continuer de développer nos réseaux autodidactes , offrant l'opportunité de partager son travail quel qu'il soit a condition de ne promouvoir aucune forme de domination (sexiste,raciste,transphobe,homophobe,sociale)
 
@@ -17,6 +18,7 @@ return <>
     
     Pour partager vos musiques ou autres fichiers audio vous pouvez tout envoyer à cette adresse!
     Kassbarian@proton.me</p>
+</div>
 
 </>
 }

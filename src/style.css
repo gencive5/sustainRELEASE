@@ -117,20 +117,6 @@ body,
 }
 }
 
-.text-about {
-    position: absolute;
-    top: 5rem;
-    text-align: center;
-    text-decoration: none;
-    font-family: 'yoxall';
-    font-size: 1rem;
-    font-display: fallback;
-    z-index: 889;
-    color: #ff9ce7;
-    line-height: 1.4rem;
-}
-
-
 .button-about {
   background-color: #aa0004;
   border: none;
@@ -263,3 +249,35 @@ body,
 .list-contributors {
   display: inline;
 }
+
+/* About */
+
+.about {
+  position: absolute;
+  top: 5rem;
+  bottom: 6rem;
+  left: 1rem;
+  right: 1rem;
+  overflow-y: auto; 
+  overflow-x: hidden;  
+  z-index: 889;
+}
+
+.text-about {
+  width: 100%;
+  font-family: 'yoxall';
+  font-size: 3rem;
+  font-display: fallback;
+  z-index: 889;
+  color: #ff9ce7;
+  line-height: 4rem;
+  overflow-wrap: break-word;
+  padding-bottom: 3rem;
+}
+
+@media screen and (max-width: 900px){
+.text-about{
+    font-size: 1rem;
+}
+}
+
