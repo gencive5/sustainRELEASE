@@ -7,8 +7,8 @@ import {useState} from 'react'
 export default function Contributors() {
 
 const items = [ 
-  {id: 1, label: "sanity (@sanity_musik), ", img: sanityImg},
-  {id: 2, label: "gencives (@gencive5), ", img: gencive5Img},
+  {id: 1, label: "sanity", handle: "@sanity_musik", url: "https://instagram.com/sanity_musik", img: sanityImg},  
+  {id: 2, label: "gencives", handle: "@gencive5", url: "https://instagram.com/gencive5", img: gencive5Img},
   {id: 3, label: "roger white, ", img: rwImg}, 
 ]
 
@@ -33,7 +33,18 @@ return <>
       onPointerEnter={(event) => isMouse (event) && setActiveId(item.id)}
       onPointerLeave={(event) => isMouse (event) && setActiveId(null)}
       onClick={() => handleTap(item.id)}
-    >{item.label}</li>
+    >{item.label}
+     {item.handle && (
+  <>
+    {'\u00a0'}(
+    <a href={item.url} target="_blank" rel="noopener noreferrer">
+      {item.handle}
+    </a>
+    )
+  </>
+)}
+{', '}
+    </li>
   )
   )}
 </ul>
@@ -44,3 +55,4 @@ return <>
 
 
 
+<a href="https://www.instagram.com/marie_gibert/?hl=en">@marie_gibert</a>
