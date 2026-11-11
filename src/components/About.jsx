@@ -17,7 +17,7 @@ return <>
     face à la violence de l'impérialisme colonial Occidental et americain organisons nous et renforcons les réseaux contestataires
     
     Pour partager vos musiques ou autres fichiers audio vous pouvez tout envoyer à cette adresse!
-    Kassbarian@proton.me</p>
+    Kassbarian@proton.me</p>  
 </div>
 
 </>

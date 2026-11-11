@@ -13,54 +13,57 @@ export default function App ()
     const [panel, setPanel] = useState(null);
 
     return <>
-     <Canvas
-            gl={ { antialias: true}}
-            style={{ position: 'relative', zIndex: 1 }} 
-        >
-        <Suspense fallback={null}>
-        <Experience/>
-        </Suspense>
-    </Canvas>
+    <div className="container">
+        <Canvas
+                gl={ { antialias: true}}
+                style={{ position: 'relative', zIndex: 1 }} 
+            >
+            <Suspense fallback={null}>
+            <Experience/>
+            </Suspense>
+        </Canvas>
 
-    <img src={logo} alt="logo" className='logo-div'/>
+        <img src={logo} alt="logo" className='logo-div'/>
 
-    <button className="button-send">Envoyer media</button>
+        <button className={`button-send ${panel ? 'panel-mode' : ''}`}>Envoyer media</button>
 
-    <p className="text-div">Vous pouvez envoyer une image qui sera intégrée au visualiseur</p>
+        <p className={`text-div ${panel ? 'panel-mode' : ''}`}>Vous pouvez envoyer une image qui sera intégrée au visualiseur</p>
 
 
-    {/* modals */}
-    <button className="button-about" onClick={() => setPanel('about')}>About</button>
-    <button className="button-contributors" onClick={() => setPanel('contributors')}>Contributors</button>
+        {/* modals */}
+        <button className="button-about" onClick={() => setPanel('about')}>About</button>
+        <button className="button-contributors" onClick={() => setPanel('contributors')}>Contributors</button>
 
-{panel &&(
-    <button className="button-close" onClick={() => setPanel(null)}>close</button>
-    )}
+        {panel &&(
+        <button className="button-close" onClick={() => setPanel(null)}>close</button>
+        )}
 
-{panel === 'about' && (
-    <div className="modal-overlay" onClick={() => setPanel(null)}>
-    <div className="modal-content" onClick={() => setPanel(null)}>
-      <About/>   
-      <button onClick={() => setPanel('contributors')}>See contributors →</button>
-      <button onClick={() => setPanel(null)}>← Back to radio</button>
+        {panel === 'about' && (
+        <div className="modal-overlay" onClick={() => setPanel(null)}>
+        <div className="modal-content" onClick={() => setPanel(null)}>
+        <About/>   
+        <button onClick={() => setPanel('contributors')}>See contributors →</button>
+        <button onClick={() => setPanel(null)}>← Back to radio</button>
+        </div>
+        </div>
+        )}
+
+
+        {panel === 'contributors' && (
+        <div className="modal-overlay" onClick={() => setPanel(null)}>
+        <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <Contributors/>
+
+        <button onClick={() => setPanel('about')}>See about →</button>
+        <button onClick={() => setPanel(null)}>← Back to radio</button>
+        
+        </div>
+        </div>
+        )}
     </div>
-    </div>
-    )}
-
-
-{panel === 'contributors' && (
-    <div className="modal-overlay" onClick={() => setPanel(null)}>
-    <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <Contributors/>
-
-      <button onClick={() => setPanel('about')}>See about →</button>
-      <button onClick={() => setPanel(null)}>← Back to radio</button>
-    
-    </div>
-    </div>
-    )}
 
 
     </>
 }
+
 
