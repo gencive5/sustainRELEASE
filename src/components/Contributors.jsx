@@ -9,12 +9,12 @@ export default function Contributors() {
 const items = [ 
   {id: 1, label: "sanity", handle: "@sanity_musik", url: "https://instagram.com/sanity_musik", img: sanityImg},  
   {id: 2, label: "gencives", handle: "@gencive5", url: "https://instagram.com/gencive5", img: gencive5Img},
-  {id: 3, label: "roger white", img: rwImg}, 
+  {id: 3, label: "video-test", video: "https://www.youtube.com/embed/YaYwasi72K8", title: "Capybara eating half a watermelon"},
 ]
 
 const [activeId, setActiveId] = useState(null)
 
-const activeItem = items.find (i => i.id === activeId)
+const activeItem = items.find(i => i.id === activeId)
 
 const isMouse = (event) => event.pointerType === 'mouse'
 
@@ -22,7 +22,18 @@ const handleTap = (id) => setActiveId(prev => (prev === id ? null : id))
 
 return <>
 <div className="hover-img">
-   {activeItem && <img src={activeItem.img} alt={activeItem.label}/>}
+   {activeItem?.video ? (
+     <iframe
+       src={activeItem.video}
+       title={activeItem.title || activeItem.label}
+       frameBorder="0"
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+       referrerPolicy="strict-origin-when-cross-origin"
+       allowFullScreen
+     />
+   ) : activeItem?.img ? (
+     <img src={activeItem.img} alt={activeItem.label}/>
+   ) : null}
 </div>
 
 <ul className="text-contributors">
@@ -30,8 +41,8 @@ return <>
     <li
       className="list-contributors"
       key={item.id}
-      onPointerEnter={(event) => isMouse (event) && setActiveId(item.id)}
-      onPointerLeave={(event) => isMouse (event) && setActiveId(null)}
+      onPointerEnter={(event) => isMouse(event) && setActiveId(item.id)}
+      onPointerLeave={(event) => isMouse(event) && setActiveId(null)}
       onClick={() => handleTap(item.id)}>
 
     {item.label}
@@ -46,7 +57,5 @@ return <>
   ))}
 </ul>
 
-
 </>
 }
-
