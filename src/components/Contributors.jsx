@@ -26,7 +26,6 @@ return <>
      <iframe
        src={activeItem.video}
        title={activeItem.title || activeItem.label}
-       frameBorder="0"
        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
        referrerPolicy="strict-origin-when-cross-origin"
        allowFullScreen
@@ -42,7 +41,7 @@ return <>
       className="list-contributors"
       key={item.id}
       onPointerEnter={(event) => isMouse(event) && setActiveId(item.id)}
-      onPointerLeave={(event) => isMouse(event) && setActiveId(null)}
+      onPointerLeave={(event) => isMouse(event) && setActiveId(item.id)}
       onClick={() => handleTap(item.id)}>
 
     {item.label}
